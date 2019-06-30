@@ -1,7 +1,7 @@
 import * as Koa from 'koa';
 import KoaRouter from 'koa-router';
 import * as glob from 'glob';
-type HTTPMethod = 'get' | 'post' | 'put' | 'del' | 'patch';
+type HTTPMethodTyoe = 'get' | 'post' | 'put' | 'del' | 'patch';
 type RouteOptions = {
   prefix?: string;
   middlewares?: Array<Koa.Middleware>
@@ -17,7 +17,7 @@ export const load = (folder: string, options: loadOptions = {}) => {
   glob.sync(require('path').join(folder, `./**/*${extname}`)).forEach(item => require(item));
   return router
 }
-export const Router = function (mathod: HTTPMethod, path: string, options: RouteOptions = {}) {
+export const Router = function (mathod: HTTPMethodTyoe, path: string, options: RouteOptions = {}) {
   return function (target: any, property: string, descriptor: any) {
     const url = options.prefix ? options.prefix + path : path;
     router[mathod](url, target[property])
@@ -33,3 +33,10 @@ export const middlewares = (middlewares: Array<Koa.Middleware>) => {
     target.prototype.middlewares = middlewares;
   };
 };
+export enum HTTPMethod {
+  GET = 'get',
+  POST = "post",
+  PUT = "put",
+  DEL = "del",
+  PATCH = "patch"
+}

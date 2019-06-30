@@ -1,6 +1,5 @@
 import Koa from "koa";
-import { Router } from "../utils/decorators";
-import { HTTPMethod } from "../utils/Requerst";
+import { Router, HTTPMethod } from "../utils/decorators";
 
 
 export default class UserInfo {
