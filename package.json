@@ -1,0 +1,32 @@
+{
+  "name": "ts-koa-node",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "ts-node-dev ./src/main.ts -P tsconfig.json --no-cache",
+    "build": "tsc -P tsconfig.json && ndoe ./dist/index.js",
+    "tslint": "tslint --fix -p tsconfig.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/koa": "^2.0.48",
+    "@types/koa-static": "^4.0.1",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^12.0.10",
+    "path-to-regexp": "^3.0.0",
+    "ts-node-dev": "^1.0.0-pre.40"
+  },
+  "dependencies": {
+    "@types/koa-router": "^7.0.40",
+    "glob": "^7.1.4",
+    "koa": "^2.7.0",
+    "koa-body": "^4.1.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-xtime": "^1.0.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.2"
+  }
+}
