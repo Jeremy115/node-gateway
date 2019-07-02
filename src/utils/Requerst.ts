@@ -6,3 +6,12 @@ export enum HTTPMethod {
   DEL = "del",
   PATCH = "patch"
 }
+class Params {
+  param: Array<Object> = [];
+
+}
+
+export const getMetadataArgsStorage = function () {
+  return new Params();
+}
+

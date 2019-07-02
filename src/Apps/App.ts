@@ -1,8 +1,11 @@
+import Koa from "koa";
 
+export default class AppServer {
 
-class AppServer {
- 
+  constructor(ctx: Koa.Context) {
+    console.log(ctx.path);
 
+  }
 
 
 

@@ -3,7 +3,7 @@ import bodify from "koa-body";
 import serve from "koa-static";
 import { load } from "./utils/decorators";
 import { resolve } from "path";
-
+import AppServer from "./Apps/App";
 /**
  *@author xiaoheshang_56@163.com
  * @class AppServer
@@ -14,15 +14,22 @@ class Main {
   constructor() {
     this.app = new Koa();
     this.config();
+    // this.tocken();
     this.routes();
+
+  }
+  tocken() {
+    this.app.use(ctx => new AppServer(ctx))
   }
   routes() {
-    let apps = load(resolve(__dirname, './Apps'));
-    this.app.use(apps.routes());
-    let router = load(resolve(__dirname, './controllers'));
-    this.app.use(router.routes());
+
+    [{ url: "/api", folderUrl: "./controllers" }].forEach(item => {
+      const router = load(item.url, resolve(__dirname, item.folderUrl));
+      this.app.use(router.routes());
+    })
   }
   config() {
+    // this.app.use(koaBody())
     this.app.use(serve(`${__dirname}/public`))
     this.app.use(
       bodify({
@@ -30,6 +37,7 @@ class Main {
         strict: false
       })
     );
+
   }
   start(): void {
     this.app.listen(3000, () => {
