@@ -50,18 +50,6 @@ export const RequestMapping = function (path: string) {
   };
 }
 
-
-
-
-export enum HTTPMethod {
-  GET = 'get',
-  POST = "post",
-  PUT = "put",
-  DEL = "del",
-  PATCH = "patch"
-}
-
-
 export function Param(name: string): Function {
   return function (object: Object, methodName: string, index: number) {
     [{
