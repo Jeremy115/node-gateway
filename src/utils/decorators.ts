@@ -1,7 +1,6 @@
 import * as Koa from 'koa';
 import KoaRouter from 'koa-router';
 import * as glob from 'glob';
-import { getMetadataArgsStorage } from './Requerst';
 
 
 type HTTPMethodTyoe = 'get' | 'post' | 'put' | 'del' | 'patch';
@@ -47,22 +46,5 @@ export const load = (prefix: string, folder: string, options: loadOptions = {}):
 export const RequestMapping = function (path: string) {
   return (target: any) => {
     target.prototype.prefix = path;
-  };
-}
-
-export function Param(name: string): Function {
-  return function (object: Object, methodName: string, index: number) {
-    [{
-      type: "param",
-      object: object,
-      method: methodName,
-      index: index,
-      name: name,
-      parse: false, // it does not make sense for Param to be parsed
-      required: true, // params are always required, because if they are missing router will not match the route
-      classTransform: undefined
-    }].filter(param => {
-      return param.object.constructor === target && param.method === methodName;
-    })
   };
 }
