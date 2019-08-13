@@ -1,8 +1,8 @@
 import { Controller, Method } from "routing-controllers";
 import { HTTPMethod } from "../utils/Requerst";
 import { Service } from "typedi";
-import UserService from "../Service/userService";
-import UserModel from "../model/userModel";
+import UserService from "../Services/userService";
+import UserModel from "../models/userModel";
 
 
 @Service()

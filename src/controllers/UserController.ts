@@ -1,22 +1,27 @@
-import { JsonController, Get, Method, QueryParams, Body } from "routing-controllers";
-import { HTTPMethod } from "../utils/Requerst";
-import UserService from "../Service/userService";
-import UserModel from "../model/userModel";
+import { JsonController, Method, QueryParams, Body } from 'routing-controllers';
+import { HTTPMethod } from '../utils/Requerst';
+import UserService from '../Services/userService';
+import UserModel from '../models/userModel';
+import Log4js from 'koa-log4';
 
-
-@JsonController("/users")
+@JsonController('/users')
 export default class UserController {
+  log4 = Log4js.getLogger('userInfo');
+  constructor(private userService: UserService) {}
 
-  constructor(private userService: UserService) { }
   /**
    *
    *
-   * @param {number} id
+   * @param {*} data
+   * @returns
    * @memberof UserController
    */
-  @Get("/getuserinfo")
+  @Method(HTTPMethod.GET, '/getuserinfo')
   public get(@QueryParams() data: any) {
-    return { data }
+    this.log4.info('sssss', data);
+    let code: Number = 0;
+    let Msg = '成功';
+    return { data, code, Msg };
   }
 
   /**

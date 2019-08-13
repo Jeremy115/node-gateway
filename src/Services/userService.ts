@@ -1,5 +1,5 @@
 import { Service } from "typedi";
-import UserModel from "../model/userModel";
+import UserModel from "../models/userModel";
 
 @Service()
 export default class UserService {
