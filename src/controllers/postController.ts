@@ -11,7 +11,7 @@ export default class PostController {
   constructor(private userService: UserService) { }
 
   @Method(HTTPMethod.POST, "/getaaaa")
-  getAAA() {
+  public getAAA():any {
     let user = new UserModel("", "");
     return this.userService.save(user);
   }

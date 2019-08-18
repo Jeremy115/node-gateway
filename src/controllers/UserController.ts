@@ -17,7 +17,7 @@ export default class UserController {
    * @memberof UserController
    */
   @Method(HTTPMethod.GET, '/getuserinfo')
-  public get(@QueryParams() data: any) {
+  public async get(@QueryParams() data: any) {
     this.log4.info('sssss', data);
     let code: Number = 0;
     let Msg = '成功';

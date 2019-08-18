@@ -6,6 +6,4 @@ export default class UserModel {
     this.userName = userName;
   }
 
-
-
 }

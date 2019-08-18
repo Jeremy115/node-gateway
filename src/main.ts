@@ -24,7 +24,7 @@ class Main {
     this.app.use(async (ctx: any, next: Function) => {
       ctx.cookies.set('csrftoken', ctx.csrf, { httpOnly: false });
       if (ctx.method === 'GET') {
-        // ctx.cookies.set('csrftoken', ctx.csrf, { httpOnly: false });
+        
         console.log('csrftoken', ctx.response.status);
       } else {
       }
@@ -33,7 +33,7 @@ class Main {
   }
   start(): void {
     this.app.listen(3000, () => {
-      console.log(`[worker:%s]`, ' 服务启动成功!!! http://127.0.0.1:3000');
+      console.log(`[worker:%s]`, ' 服务启动成功!!! http://127.0.0.1:3000 ');
       this.logger.log('[worker:%s] web server start listen on %s', process.pid, '3000');
     });
   }
