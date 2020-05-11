@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { createKoaServer, useContainer } from 'routing-controllers';
+import { createExpressServer, useContainer } from 'routing-controllers';
 import Container from 'typedi';
 import Log4js from 'koa-log4';
 
@@ -11,7 +11,7 @@ class Main {
   app: any;
   logger = Log4js.getLogger('app');
   constructor() {
-    this.app = createKoaServer({
+    this.app = createExpressServer({
       routePrefix: '/api',
       controllers: [__dirname + '/controllers/*.ts'],
     });
