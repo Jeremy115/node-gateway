@@ -11,7 +11,6 @@ class Main {
   app: any;
   logger = Log4js.getLogger('app');
   constructor() {
-    this.logger.log('111111==============================');
     this.app = createKoaServer({
       routePrefix: '/api',
       controllers: [__dirname + '/controllers/*.ts'],
@@ -24,7 +23,7 @@ class Main {
     this.app.use(async (ctx: any, next: Function) => {
       ctx.cookies.set('csrftoken', ctx.csrf, { httpOnly: false });
       if (ctx.method === 'GET') {
-        
+
         console.log('csrftoken', ctx.response.status);
       } else {
       }

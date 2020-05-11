@@ -14,7 +14,6 @@ type loadOptions = {
 export const Router = (mathod: HTTPMethodTyoe, path: string, options?: RouteOptions) => route(mathod, path, options);
 
 
-
 let route = function (mathod: HTTPMethodTyoe, path: string, options: RouteOptions = {}) {
   return function (target: any, property: string) {
 

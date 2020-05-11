@@ -1,19 +1,22 @@
 import { Controller, Method } from "routing-controllers";
 import { HTTPMethod } from "../utils/Requerst";
-import { Service } from "typedi";
 import UserService from "../Services/userService";
 import UserModel from "../models/userModel";
 
 
-@Service()
-@Controller("/prower")
+@Controller("/prowar")
 export default class PostController {
-  constructor(private userService: UserService) { }
+
+  constructor() {
+
+  }
 
   @Method(HTTPMethod.POST, "/getaaaa")
-  public getAAA():any {
+  public getAAA(): any {
+    let userService = new UserService();
+
     let user = new UserModel("", "");
-    return this.userService.save(user);
+    return userService.save(user);
   }
 
 }
